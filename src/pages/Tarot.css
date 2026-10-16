@@ -1,0 +1,455 @@
+.tarot-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.mode-notice-tarot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+}
+
+/* ============ SPREAD SELECTION ============ */
+.spread-section {
+  margin-bottom: 32px;
+}
+
+.spread-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.spread-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.spread-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 2px solid var(--border-subtle);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.spread-card:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+}
+
+.spread-card.selected {
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+.spread-emoji {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.spread-name {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.spread-count {
+  font-size: 0.72rem;
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+.spread-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* ============ QUESTION ============ */
+.question-section {
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.question-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.question-label span {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.question-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  min-width: 0;
+}
+
+.question-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============ SHUFFLE ============ */
+.shuffle-section {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.shuffle-btn {
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+}
+
+.spin-icon {
+  animation: spin 0.5s linear infinite;
+}
+
+/* ============ SHUFFLING ANIMATION ============ */
+.shuffling-anim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.deck-stack {
+  position: relative;
+  width: 100px;
+  height: 140px;
+}
+
+.deck-card-anim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1e0a3c, #0d1120);
+  border-radius: 10px;
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: rgba(168, 85, 247, 0.4);
+}
+
+.shuffling-anim p {
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ============ CARDS LAYOUT ============ */
+.cards-section {
+  margin-bottom: 40px;
+}
+
+.cards-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.cards-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.card-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-expand-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  color: var(--accent-purple);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.card-expand-btn:hover {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.card-expanded {
+  padding: 16px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.expanded-section {
+  margin-bottom: 10px;
+}
+
+.expanded-section:last-child {
+  margin-bottom: 0;
+}
+
+.expanded-section h5 {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--accent-purple);
+  margin-bottom: 4px;
+}
+
+.expanded-section p {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ============ INTERPRET ============ */
+.interpret-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.interpret-btn {
+  padding: 16px 40px;
+  font-size: 1rem;
+}
+
+.interpret-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.error-banner-tarot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--accent-rose);
+  font-size: 0.85rem;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+/* ============ INTERPRETATION ============ */
+.interpretation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.interp-title {
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 8px;
+}
+
+.interp-intro {
+  padding: 28px;
+  border-color: rgba(168, 85, 247, 0.2);
+  background: rgba(168, 85, 247, 0.04);
+}
+
+.interp-intro-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  text-align: center;
+}
+
+.interp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.interp-card {
+  padding: 20px;
+}
+
+.interp-card-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--accent-purple);
+  margin-bottom: 10px;
+}
+
+.interp-number {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+.interp-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.interp-synthesis {
+  padding: 24px;
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.interp-synthesis h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.interp-synthesis p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-size: 0.9rem;
+}
+
+.interp-advice {
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(168,85,247,0.05) 0%, rgba(245,158,11,0.03) 100%);
+}
+
+.interp-advice h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.advice-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ============ EMPTY STATE ============ */
+.tarot-empty {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.empty-cards {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.empty-card {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.ec-0 { top: 0; left: 0; transform: rotate(-15deg); }
+.ec-1 { top: 0; right: 0; transform: rotate(15deg); }
+.ec-2 { bottom: 0; left: 0; transform: rotate(-5deg); }
+.ec-3 { bottom: 0; right: 0; transform: rotate(5deg); }
+
+.tarot-empty p {
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .spread-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .question-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

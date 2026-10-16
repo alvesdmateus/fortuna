@@ -1,0 +1,477 @@
+.astro-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* ============ LAYOUT ============ */
+.astro-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+/* ============ SIGNS PANEL ============ */
+.signs-panel {
+  position: sticky;
+  top: 80px;
+}
+
+.panel-title {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.sign-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.sign-btn:hover {
+  border-color: var(--sign-color, var(--accent-purple));
+  background: var(--bg-card-hover);
+}
+
+.sign-btn.selected {
+  border-color: var(--sign-color, var(--accent-purple));
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+}
+
+.sign-symbol {
+  font-size: 1.1rem;
+  color: var(--sign-color, var(--text-secondary));
+}
+
+.sign-name-sm {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============ EMPTY STATE ============ */
+.astro-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 400px;
+  text-align: center;
+}
+
+.zodiac-wheel {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-symbol {
+  position: absolute;
+  font-size: 1.1rem;
+  animation: spin 60s linear infinite;
+  transform-origin: center;
+}
+
+.astro-empty h3 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+
+.astro-empty p {
+  color: var(--text-secondary);
+  max-width: 360px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ============ SIGN HERO ============ */
+.sign-reading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sign-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 28px;
+  border-color: var(--sign-color, var(--border-accent));
+  border-top: 3px solid var(--sign-color, var(--accent-purple));
+}
+
+.sign-hero-left {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.sign-big-symbol {
+  font-size: 3.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sign-hero-name {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin: 4px 0 8px;
+}
+
+.sign-dates,
+.sign-planet {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.sign-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sign-description {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.sign-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.trait-pill {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid;
+  font-weight: 500;
+}
+
+/* ============ FORTUNE ============ */
+.fortune-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fortune-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+}
+
+.fortune-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.fortune-overview {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fortune-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.moon-phase {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.energy-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.energy-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.energy-bar-track {
+  width: 100px;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.energy-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.energy-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fortune-overall {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.ai-loading {
+  animation: pulse-glow 1s ease-in-out infinite;
+  color: var(--accent-purple);
+}
+
+.lucky-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 16px;
+}
+
+.lucky-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.lucky-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.lucky-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ============ DOMAINS ============ */
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.domain-card {
+  padding: 20px;
+}
+
+.domain-icon {
+  margin-bottom: 10px;
+}
+
+.domain-card h4 {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.domain-card p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ============ ADVICE ============ */
+.advice-banner {
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.advice-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.advice-banner h4 {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.advice-body {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============ STRENGTHS/WEAKNESSES ============ */
+.sw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sw-card {
+  padding: 20px;
+}
+
+.sw-card h4 {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.sw-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sw-card li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 14px;
+  position: relative;
+}
+
+.sw-card li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--accent-purple);
+}
+
+/* ============ ALL SIGNS ============ */
+.all-signs-section {
+  padding: 60px 0;
+}
+
+.all-signs-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.all-sign-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 12px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+  border-top: 2px solid transparent;
+  text-align: center;
+}
+
+.all-sign-card:hover {
+  border-top-color: var(--sign-color, var(--accent-purple));
+  transform: translateY(-4px);
+}
+
+.all-sign-symbol {
+  font-size: 1.8rem;
+}
+
+.all-sign-emoji {
+  font-size: 1.2rem;
+}
+
+.all-sign-card h4 {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.all-sign-dates {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.all-sign-element {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .astro-layout {
+    grid-template-columns: 1fr;
+  }
+  .signs-panel {
+    position: static;
+  }
+  .signs-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .sign-hero {
+    grid-template-columns: 1fr;
+  }
+  .domains-grid {
+    grid-template-columns: 1fr;
+  }
+  .all-signs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .signs-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sw-grid {
+    grid-template-columns: 1fr;
+  }
+  .all-signs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lucky-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
